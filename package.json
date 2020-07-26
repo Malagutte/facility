@@ -6,6 +6,8 @@
   "dependencies": {
     "axios": "^0.19.2",
     "faker": "^4.1.0",
+    "hashmap": "^2.4.0",
+    "js-yaml": "^3.14.0",
     "kafkajs": "1.11.0",
     "yargs": "^15.1.0"
   },
