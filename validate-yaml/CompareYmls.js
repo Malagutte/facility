@@ -6,8 +6,66 @@ const { exec } = require("child_process").execSync;
 
 const paths = [
     {
-        qa_yml: "../../api_address_java/api_addressqa.yaml",
-        prod_yml: "../../k8sprod_deploy_control/lopesk8s/api_address_java/api-adressprod.yaml"
+        qa_yml: "../../back_crm_home/back-home-crmqa-deployment.yaml",
+        prod_yml: "../../k8sprod_deploy_control/lopesk8s/back_crm_home/back-crm-homeprod.yaml"
+    },
+    {
+        qa_yml: "../../back_crm_agent/back-crm-agentqa.yaml",
+        prod_yml: "../../k8sprod_deploy_control/lopesk8s/back_crm_agent/back-crm-agent.yaml"
+    }
+    /* {
+        qa_yml: "../../api_search_fac/api-search-facqa.yaml",
+        prod_yml: "../../k8sprod_deploy_control/lopesk8s/api_search_fac/apisearch.yaml"
+    }, */
+    /* {
+        qa_yml: "../../api_search_address/api-search-addressqa.yaml",
+        prod_yml: "../../k8sprod_deploy_control/lopesk8s/api_search_address/api-search-addressprod.yaml"
+    }, */
+    /* {
+        qa_yml: "../../api_company_java/api_companyqa.yaml",
+        prod_yml: "../../k8sprod_deploy_control/lopesk8s/api_company_java/api_companyprod.yaml"
+    }, */
+    /* {
+        qa_yml: "../../api_agent_java/api_agentqa.yaml",
+        prod_yml: "../../k8sprod_deploy_control/lopesk8s/api_agent_java/api_agentprod.yaml"
+    }, */
+    /* {
+        qa_yml: "../../back_crm_facs/back-facs-crmqa.yaml",
+        prod_yml: "../../k8sprod_deploy_control/lopesk8s/back_crm_facs/back-crmprod-fac.yaml"
+    }, */
+    /* {
+        qa_yml: "../../back_crm_home/back-home-crmqa-deployment.yaml",
+        prod_yml: "../../k8sprod_deploy_control/lopesk8s/back_crm_home/back-crm-homeprod.yaml"
+    }, */
+    
+    
+    /* {
+        qa_yml: "../../back_crm_profile/back-crm-profileqa.yaml",
+        prod_yml: "../../k8sprod_deploy_control/lopesk8s/back_crm_profile/back-crmprod-profile.yaml"
+    }, */
+    /* {
+        qa_yml: "../../back_crmlead_distribution/back-crmlead-distributionqa.yaml",
+        prod_yml: "../../k8sprod_deploy_control/lopesk8s/back_crmlead-distribution/back-crmlead-distributionprod.yaml"
+    } */
+    /*
+    {
+        qa_yml: "../../api_lead_distribution/api_lead_distributionqa.yaml",
+        prod_yml: "../../k8sprod_deploy_control/lopesk8s/api_lead_distribution/api_leadprod-distribution.yaml"
+    }, 
+    {
+        qa_yml: "../../api_fac_java/api-facqa.yaml",
+        prod_yml: "../../k8sprod_deploy_control/lopesk8s/api_fac_java/api_facprod.yaml"
+    },
+    {
+        qa_yml: "../../back_crm_login/back-crm-loginqa.yaml",
+        prod_yml: "../../k8sprod_deploy_control/lopesk8s/back_crm_login/back-crm-loginprod.yaml"
+    }, */
+    
+    
+    /*
+    {
+        qa_yml: "../../back_crm_profile/back-crm-profileqa.yaml",
+        prod_yml: "../../k8sprod_deploy_control/lopesk8s/back_crm_profile/back-crmprod-profile.yaml"
     },
     {
         qa_yml: "../../api_agent_java/api_agentqa.yaml",
@@ -17,21 +75,10 @@ const paths = [
         qa_yml: "../../api_company_java/api_companyqa.yaml",
         prod_yml: "../../k8sprod_deploy_control/lopesk8s/api_company_java/api_companyprod.yaml"
     },
-    {
-        qa_yml: "../../api_fac_java/api-facqa.yaml",
-        prod_yml: "../../k8sprod_deploy_control/lopesk8s/api_fac_java/api_facprod.yaml"
-    },
+    
     {
         qa_yml: "../../api_notification_java/api-notificationqa.yaml",
         prod_yml: "../../k8sprod_deploy_control/lopesk8s/api_notification_java/api-notificationprod.yaml"
-    },
-    {
-        qa_yml: "../../api_search_address/api-search-addressqa.yaml",
-        prod_yml: "../../k8sprod_deploy_control/lopesk8s/api_search_address/api-search-addressprod.yaml"
-    },
-    {
-        qa_yml: "../../api_search_fac/api-search-facqa.yaml",
-        prod_yml: "../../k8sprod_deploy_control/lopesk8s/api_search_fac/apisearch.yaml"
     },
     {
         qa_yml: "../../back_crm_facs/back-facs-crmqa.yaml",
@@ -42,6 +89,23 @@ const paths = [
         prod_yml: "../../k8sprod_deploy_control/lopesk8s/back_crm_home/back-crm-homeprod.yaml"
     },
     {
+        qa_yml: "../../back_crm_profile/back-crm-profileqa.yaml",
+        prod_yml: "../../k8sprod_deploy_control/lopesk8s/back_crm_profile/back-crmprod-profile.yaml"
+    }
+     {
+        qa_yml: "../../api_address_java/api_addressqa.yaml",
+        prod_yml: "../../k8sprod_deploy_control/lopesk8s/api_address_java/api-adressprod.yaml"
+    },
+    
+    
+    
+    {
+        qa_yml: "../../api_search_address/api-search-addressqa.yaml",
+        prod_yml: "../../k8sprod_deploy_control/lopesk8s/api_search_address/api-search-addressprod.yaml"
+    },
+    
+   
+    {
         qa_yml: "../../back_crm_login/back-crm-loginqa.yaml",
         prod_yml: "../../k8sprod_deploy_control/lopesk8s/back_crm_login/back-crm-loginprod.yaml"
     },
@@ -49,10 +113,7 @@ const paths = [
         qa_yml: "../../back_crm_product/back-product-crmqa.yaml",
         prod_yml: "../../k8sprod_deploy_control/lopesk8s/back_crm_product/back-product-crmprod.yaml"
     },
-    {
-        qa_yml: "../../back_crm_profile/back-crm-profileqa.yaml",
-        prod_yml: "../../k8sprod_deploy_control/lopesk8s/back_crm_profile/back-crmprod-profile.yaml"
-    }
+    */
 ]
 
 
@@ -69,7 +130,7 @@ const compareMaps = (map, mapToCompare) => {
         const key = keys[index];
 
         if (!mapToCompare.has(key)) {
-            console.log(key)
+            console.log(`- name: ${key} \n  value: \"${map.get(key)}\"`)
         }
 
     }
@@ -103,9 +164,9 @@ const CompareQaToProd = () => {
 }
 
 const getLastTagGit = (path) => {
-    const commandUpdate = "cd " + path + " && git pull";
+    const commandUpdate = "cd " + path + " && git stash && git checkout develop && git pull";
     const command = "cd " + path + " && git describe --abbrev=0 --tags";
-    /* execSync(commandUpdate) */
+    execSync(commandUpdate) 
     return execSync(command).toString()
 }
 
