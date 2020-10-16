@@ -1,6 +1,7 @@
 const ReadFile = require("./ReadFile")
 const simpleGit = require('simple-git');
 const { execSync } = require("child_process");
+const { boolean } = require("yargs");
 const { exec } = require("child_process").execSync;
 
 
@@ -113,6 +114,7 @@ const paths = [
         qa_yml: "../../back_crm_product/back-product-crmqa.yaml",
         prod_yml: "../../k8sprod_deploy_control/lopesk8s/back_crm_product/back-product-crmprod.yaml"
     }
+
 ]
 
 
@@ -120,23 +122,12 @@ const returnFileName = (path) => {
     return path.split('/').pop()
 }
 
+const SEARCH_VALUE = "validate_jwt_token"
 
-const compareMaps = (map, mapToCompare) => {
 
-    const keys = map.keys();
 
-    for (let index = 0; index < keys.length; index++) {
-        const key = keys[index];
+const printValue = () => {
 
-        if (!mapToCompare.has(key)) {
-            console.log(`- name: ${key} \n  value: \"${map.get(key)}\"`)
-        }
-
-    }
-
-}
-
-const CompareQaToProd = () => {
 
     paths.forEach(path => {
 
@@ -144,32 +135,31 @@ const CompareQaToProd = () => {
         files.pop()
         const directoryPath = files.join("/");
 
-        const prodValues = ReadFile(path.prod_yml)
+
         const qaValues = ReadFile(path.qa_yml)
-        const qaTag = getLastTagGit(directoryPath);
+       /*  pullAndCheckoutForLastTag(directoryPath) */
 
-        console.log("Begin validate file: " + returnFileName(path.prod_yml) + "\n")
-        console.log("Qa Tag: " + qaTag)
+        if (qaValues.has(SEARCH_VALUE)) {
+            const value = qaValues.get(SEARCH_VALUE)
+            const valueBoolean  =  value.split(":")[1]
+            if (valueBoolean == "true") {
+                console.log("Begin validate file: " + returnFileName(path.qa_yml) + "\n")
+                console.log(`- name: ${SEARCH_VALUE} \n  value: \"${value}\"`)
+                console.log("==========================================================")
+            }
 
-        compareMaps(qaValues, prodValues)
-
-        console.log("==========================================================")
-
-
-
-
+        }
     });
 }
 
-const getLastTagGit = (path) => {
-    const commandUpdate = `cd ${path}  && git stash && git checkout develop && git pull`; 
-    const command = `cd ${path} && git describe --abbrev=0 --tags`;
-    execSync(commandUpdate) 
-    const tag = execSync(command).toString()
-    const commandCheckout = `cd ${path}  && git stash && git checkout ${tag}`;
-    execSync(commandCheckout) 
+const pullAndCheckoutForLastTag = (path) => {
 
-    return tag
+    const commandUpdate = `cd ${path}  && git stash && git checkout develop && git pull`;
+    const command = `cd ${path} && git describe --abbrev=0 --tags`;
+    execSync(commandUpdate)
+    const tag = execSync(command).toString()
+    /* const commandCheckout = `cd ${path}  && git stash && git checkout ${tag}`;
+    execSync(commandCheckout) */
 }
 
-CompareQaToProd()
+printValue()

@@ -9,6 +9,7 @@
     "hashmap": "^2.4.0",
     "js-yaml": "^3.14.0",
     "kafkajs": "1.11.0",
+    "simple-git": "^2.20.1",
     "yargs": "^15.1.0"
   },
   "devDependencies": {},
