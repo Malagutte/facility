@@ -5,6 +5,17 @@ const { exec } = require("child_process").execSync;
 
 
 const paths = [
+
+
+    {
+        qa_yml: "../../api_fac_java/api-facqa.yaml",
+        prod_yml: "../../k8sprod_deploy_control/lopesk8s/api_fac_java/api_facprod.yaml"
+    }
+    /*
+    {
+        qa_yml: "../../api_communication_java/api_communicationqa.yaml",
+        prod_yml: "../../k8sprod_deploy_control/lopesk8s/api_communication_java/api_communicationprod.yaml"
+    }
     {
         qa_yml: "../../back_crm_home/back-home-crmqa-deployment.yaml",
         prod_yml: "../../k8sprod_deploy_control/lopesk8s/back_crm_home/back-crm-homeprod.yaml"
@@ -112,7 +123,7 @@ const paths = [
     {
         qa_yml: "../../back_crm_product/back-product-crmqa.yaml",
         prod_yml: "../../k8sprod_deploy_control/lopesk8s/back_crm_product/back-product-crmprod.yaml"
-    }
+    } */
 ]
 
 
@@ -162,12 +173,12 @@ const CompareQaToProd = () => {
 }
 
 const getLastTagGit = (path) => {
-    const commandUpdate = `cd ${path}  && git stash && git checkout develop && git pull`; 
+    /* const commandUpdate = `cd ${path}  && git stash && git checkout develop && git pull`;  */
     const command = `cd ${path} && git describe --abbrev=0 --tags`;
-    execSync(commandUpdate) 
+    /* execSync(commandUpdate)  */
     const tag = execSync(command).toString()
-    const commandCheckout = `cd ${path}  && git stash && git checkout ${tag}`;
-    execSync(commandCheckout) 
+    /* const commandCheckout = `cd ${path}  && git stash && git checkout ${tag}`;
+    execSync(commandCheckout)  */
 
     return tag
 }
