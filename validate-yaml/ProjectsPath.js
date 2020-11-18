@@ -8,7 +8,7 @@ module.exports = paths = [
     {
         qa_yml: "../../back_crm_facs/back-facs-crmqa.yaml",
         prod_yml: "../../k8sprod_deploy_control/lopesk8s/back_crm_facs/back-crmprod-fac.yaml",
-        should_validate: false,
+        should_validate: true,
         values: ["country_zipcode", "country_states", "state_locations",
             "location_neighborhoods", "dashboard_get", "dashboard_post",
             "dashboard_post_v2", "dashboard_post_v3", "fac_id_patch", "fac_id_get",
@@ -26,18 +26,6 @@ module.exports = paths = [
     },
 
     {
-        qa_yml: "../../api_fac_java/api-facqa.yaml",
-        prod_yml: "../../k8sprod_deploy_control/lopesk8s/api_fac_java/api_facprod.yaml",
-        should_validate: false,
-        values: []
-    },
-    {
-        qa_yml: "../../api_agent_java/api_agentqa.yaml",
-        prod_yml: "../../k8sprod_deploy_control/lopesk8s/api_agent_java/api_agentprod.yaml",
-        should_validate: false
-    },
-
-    {
         qa_yml: "../../back_crm_agent/back-crm-agentqa.yaml",
         prod_yml: "../../k8sprod_deploy_control/lopesk8s/back_crm_agent/back-crm-agent.yaml",
         should_validate: false
@@ -50,12 +38,12 @@ module.exports = paths = [
     {
         qa_yml: "../../back_crm_home/back-home-crmqa-deployment.yaml",
         prod_yml: "../../k8sprod_deploy_control/lopesk8s/back_crm_home/back-crm-homeprod.yaml",
-        should_validate: true
+        should_validate: false
     },
     {
         qa_yml: "../../api_search_fac/api-search-facqa.yaml",
         prod_yml: "../../k8sprod_deploy_control/lopesk8s/api_search_fac/apisearch.yaml",
-        should_validate: false,
+        should_validate: true,
         values: ["autocomplete_facs", "search_facs", "card_info_token",
             "card_info_id", "scheduled_fac_overdue_notification",
             "scheduled_return_visit_notification", "sort_product_with_regex",
@@ -107,7 +95,8 @@ module.exports = paths = [
     {
         qa_yml: "../../api_fac_java/api-facqa.yaml",
         prod_yml: "../../k8sprod_deploy_control/lopesk8s/api_fac_java/api_facprod.yaml",
-        should_validate: false
+        should_validate: true,
+        values: []
     },
     {
         qa_yml: "../../back_crm_login/back-crm-loginqa.yaml",
@@ -122,7 +111,8 @@ module.exports = paths = [
     {
         qa_yml: "../../api_agent_java/api_agentqa.yaml",
         prod_yml: "../../k8sprod_deploy_control/lopesk8s/api_agent_java/api_agentprod.yaml",
-        should_validate: true
+        should_validate: true,
+        values: []
     },
     {
         qa_yml: "../../api_company_java/api_companyqa.yaml",
