@@ -3,10 +3,10 @@ var faker = require('faker');
 const { v4: uuidv4 } = require('uuid');
 
 const type = "CreateNotificationCommand";
-const topicName = "dev_topic_notification_commands";
+const topicName = "qa_topic_notification_commands";
 const urlKafka = "kafkasquadcrm.lpsbr.com:9092";
-const userId = "PESS714344";
-const amountNotification = 100;
+const userId = "PESS600484";
+const amountNotification = 1000;
 const typeBuffer = Buffer.alloc(type.length, type);
 const kafka = new Kafka({ brokers: [urlKafka] });
 
